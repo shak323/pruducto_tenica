@@ -1,0 +1,77 @@
+<p class="mx-auto mt-2" style="width: 200px;">product works!</p>
+
+
+
+<div class="container-fluid">
+
+	<div class=" row">
+		<div class="col col-lg-8">
+			<table class="table table-striped">
+				<thead>
+
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Name</th>
+						<th scope="col">Description</th>
+						<th scope="col">Price</th>
+						<th scope="col">Creation Date</th>
+						<th scope="col">Expired Date</th>
+						<th scope="col">update</th>
+						<th scope="col">Delete</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let product of productData">
+						<th scope="row">{{product.id}}</th>
+						<th scope="row">{{product.name}}</th>
+						<th scope="row">{{product.description}}</th>
+						<th scope="row">{{product.price}}</th>
+						<th scope="row">{{product.creation_date}}</th>
+						<th scope="row">{{product.expired_date}}</th>
+						<td><button type="button" class="btn btn-primary" (click)="loadData(product)">Update</button></td>
+						<td><button type="button" class="btn btn-danger" (click)="delete(product.id)">Delete</button></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<div class="col col-lg-4">
+			<label class="font-weight-bold text-center w-100  p-2">Create product</label>
+			<form>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="name" [(ngModel)]="name" name="name">
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Description" [(ngModel)]="description" name="description">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<input type="number" class="form-control" placeholder="Price" [(ngModel)]="price" name="price">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<button class="btn btn-primary mt-2" (click)="save()" [disabled]="id">Guardar</button>
+					</div>
+					<div class="col">
+						<button class="btn btn-success mt-2" (click)="update()" [disabled]="!id">Actualizar</button>
+					</div>
+					<div class="col">
+						<button class="btn btn-default mt-2" (click)="clear()">Cancelar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>
